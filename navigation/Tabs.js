@@ -12,6 +12,7 @@ const Tab = createBottomTabNavigator();
 
 
 const Tabs = () => {
+    
     return ( 
         <NavigationContainer>
             <Tab.Navigator>
@@ -24,6 +25,7 @@ const Tabs = () => {
                     ),
                 }}
                 />
+                
                 <Tab.Screen 
                 name = "Favourites" 
                 component = {Favourites} 
