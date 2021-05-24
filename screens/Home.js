@@ -6,14 +6,14 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
-const Documents = ({navigation}) => {
+const Home = ({navigation}) => {
     return ( 
         <SafeAreaView style = {styles.container}>
             <Text>
-                Documents
+                Home
             </Text> 
             <Button 
-            title = "Go to details screen"
+            title = "Go To Profile"
             onPress={()=> navigation.navigate("Profile")}
             />
         </SafeAreaView>
@@ -29,4 +29,4 @@ const styles = StyleSheet.create({
     },
   });
  
-export default Documents;
+export default Home;

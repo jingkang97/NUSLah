@@ -6,9 +6,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
-import Documents from "./screens/Documents"
+import Home from "./screens/Home"
 import Favourites from "./screens/Favourites"
-import Search from "./screens/Search"
 import Profile from "./screens/Profile"
 
 import Icon from 'react-native-vector-icons/Ionicons'
@@ -25,7 +24,7 @@ const HomeStackScreen = ({navigation}) => {
       <HomeStack.Navigator 
         screenOptions={{
           headerStyle:{
-            backgroundColor: "#8077FF",
+            backgroundColor: "#39A0ED",
             height: 90,
           },
           headerTintColor: '#fff',
@@ -34,16 +33,15 @@ const HomeStackScreen = ({navigation}) => {
           },
         }}
       >
-        <HomeStack.Screen name = "Documents" component = {Documents} 
+        <HomeStack.Screen name = "Home" component = {Home} 
         options = {{
-          title: 'Documents',
+          title: 'Home',
           headerLeft: () => (
             <Icon.Button name="ios-menu" size = {25}
             backgroundColor="#8077FF" onPress = {() => navigation.openDrawer()}>
             </Icon.Button>
           )
         }}/>
-        
       </HomeStack.Navigator>
   )
 }
@@ -67,29 +65,6 @@ const ProfileStackScreen = ({navigation}) => {
   )
 }
 
-const HomeScreen = ({navigation}) => {
-  return(
-    <View style = {{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>
-        Home Screen
-      </Text>
-      <Button 
-        title = "Go to details screen"
-        onPress = {() => navigation.navigate("Details")}
-      />
-    </View>
-  )
-}
-
-const Details = () => {
-  return(
-    <View style = {{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>
-        Details
-      </Text>
-    </View>
-  )
-}
 
 export default function App() {
   return (
@@ -98,9 +73,17 @@ export default function App() {
         <Drawer.Screen name = "Documents" component = {HomeStackScreen}/>
         <Drawer.Screen name = "Profile" component = {ProfileStackScreen}/>
       </Drawer.Navigator> */}
-      <Stack.Navigator>
-        <Stack.Screen name = "Home" component = {HomeScreen} />
-        <Stack.Screen name = "Details" component = {Details} />
+      <Stack.Navigator screenOptions = {{
+          headerStyle: {
+            backgroundColor: '#39A0ED'
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold'
+          }
+        }}>
+        <Stack.Screen name = "Home" component = {Home} />
+        <Stack.Screen name = "Profile" component = {Profile} />
       </Stack.Navigator>
     </NavigationContainer>
       
