@@ -32,6 +32,8 @@ const MainTabScreen = () => (
         showLabel:false,
         style: {
             borderRadius: 30,
+            borderBottomEndRadius: 0,
+            borderBottomStartRadius: 0,
             padding: 10,
             paddingLeft: 25,
             paddingRight: 25
