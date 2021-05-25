@@ -4,10 +4,10 @@ import Profile from "./Profile"
 import Forum from './Forum'
 import Discover from './Discover'
 import ModuleReview from './ModuleReview'
-import { StyleSheet, Text, SafeAreaView, View, Button, Image, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, SafeAreaView, View, Image} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack'
-
+import AddButton from './AddButton';
 
 import Icon from 'react-native-vector-icons/Ionicons'
 // import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -23,6 +23,8 @@ const DiscoverStack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const MainTabScreen = () => (
+    
+    
     <Tab.Navigator
       initialRouteName="Forum"
       activeColor="#39A0ED"
@@ -82,32 +84,7 @@ const MainTabScreen = () => (
                 name="Action Button"
                 component={HomeStackScreen}
                 options={{
-                tabBarIcon: ({ focused }) => (
-                    <TouchableOpacity style = {{
-                        ...style.shadow
-                    }}>
-                        <View style = {{
-                            left: -6,
-                            top: -30,
-                            width: 60,
-                            height: 60,
-                            backgroundColor: '#39A0ED',
-                            borderRadius: '50%',
-                            justifyContent: 'center',
-                            alignItems: 'center'
-                        }}>
-                        <Image source = {require('../assets/add-outline.png')}
-                    // resizeMode="contain"
-                    style={{
-                        width: 40,
-                        height: 40,
-                        tintColor:'#fff',
-                        
-                    }}
-                    />
-                        </View>
-                    </TouchableOpacity>  
-                ),
+                tabBarIcon: () => <AddButton />
                 }}
             />    
 
