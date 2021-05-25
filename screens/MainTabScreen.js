@@ -85,6 +85,7 @@ const MainTabScreen = () => (
                         ...style.shadow
                     }}>
                         <View style = {{
+                            left: -6,
                             top: -30,
                             width: 60,
                             height: 60,
