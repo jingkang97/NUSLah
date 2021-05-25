@@ -172,6 +172,15 @@ const ForumStackScreen = ({navigation}) => (
           <Icon.Button name = "ios-menu" size = {25}
           backgroundColor = "#39A0ED" onPress = {()=> navigation.openDrawer()}
           ></Icon.Button>
+        ),
+        headerRight: () => (
+          <View style = {{flexDirection: 'row'}}>
+            <Icon.Button name = "ios-notifications-outline" size = {25} 
+            style = {{marginRight:-12}}
+            backgroundColor = "#39A0ED" onPress = {console.log('notif!')}></Icon.Button>
+            <Icon.Button name = "ios-chatbox-ellipses-outline" size = {25} 
+            backgroundColor = "#39A0ED" onPress = {console.log('message!')}></Icon.Button>
+          </View>
         )
       }}
       />
@@ -195,7 +204,17 @@ const ForumStackScreen = ({navigation}) => (
           <Icon.Button name = "ios-menu" size = {25}
           backgroundColor = "#39A0ED" onPress = {()=> navigation.openDrawer()}
           ></Icon.Button>
+        ),
+        headerRight: () => (
+          <View style = {{flexDirection: 'row'}}>
+            <Icon.Button name = "ios-notifications-outline" size = {25} 
+            style = {{marginRight:-12}}
+            backgroundColor = "#39A0ED" onPress = {console.log('notif!')}></Icon.Button>
+            <Icon.Button name = "ios-chatbox-ellipses-outline" size = {25} 
+            backgroundColor = "#39A0ED" onPress = {console.log('message!')}></Icon.Button>
+          </View>
         )
+        
       }}
       />
     </ModuleReviewStack.Navigator>
@@ -221,6 +240,15 @@ const ForumStackScreen = ({navigation}) => (
                     backgroundColor = "#39A0ED" onPress = {()=> navigation.openDrawer()}
                 ></Icon.Button>
             </View> 
+        ),
+        headerRight: () => (
+          <View style = {{flexDirection: 'row'}}>
+            <Icon.Button name = "ios-notifications-outline" size = {25} 
+            style = {{marginRight:-12}}
+            backgroundColor = "#39A0ED" onPress = {console.log('notif!')}></Icon.Button>
+            <Icon.Button name = "ios-chatbox-ellipses-outline" size = {25} 
+            backgroundColor = "#39A0ED" onPress = {console.log('message!')}></Icon.Button>
+          </View>
         )
       }}
       />
@@ -246,6 +274,15 @@ const DiscoverStackScreen = ({navigation}) => (
           <Icon.Button name = "ios-menu" size = {25}
           backgroundColor = "#39A0ED" onPress = {()=> navigation.openDrawer()}
           ></Icon.Button>
+        ),
+        headerRight: () => (
+          <View style = {{flexDirection: 'row'}}>
+            <Icon.Button name = "ios-notifications-outline" size = {25} 
+            style = {{marginRight:-12}}
+            backgroundColor = "#39A0ED" onPress = {console.log('notif!')}></Icon.Button>
+            <Icon.Button name = "ios-chatbox-ellipses-outline" size = {25} 
+            backgroundColor = "#39A0ED" onPress = {console.log('message!')}></Icon.Button>
+          </View>
         )
       }}
       />
