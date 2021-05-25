@@ -13,6 +13,8 @@ import Icon from 'react-native-vector-icons/Ionicons'
 // import { TouchableOpacity } from 'react-native-gesture-handler';
 import { StylesProvider } from '@material-ui/styles';
 
+import None from './NoPage'
+import { Row } from 'native-base';
 
 const HomeStack = createStackNavigator();
 const ProfileStack = createStackNavigator();
@@ -82,13 +84,14 @@ const MainTabScreen = () => (
 
         <Tab.Screen
                 name="Action Button"
-                component={HomeStackScreen}
+                component={ModuleReviewStackScreen}
                 options={{
-                tabBarIcon: () => <AddButton />
+                tabBarIcon: ({focused}) => 
+                  <View style = {{justifyContent: 'center',left: -30, top: -20}}>
+                    <AddButton />
+                  </View>
                 }}
             />    
-
-
       <Tab.Screen
         name="Discover"
         component={DiscoverStackScreen}
@@ -135,9 +138,10 @@ export default MainTabScreen;
 const ForumStackScreen = ({navigation}) => (
     <ForumStack.Navigator screenOptions = {{
       headerStyle: {
-        backgroundColor: '#39A0ED'
+        backgroundColor: '#F3F2F2',
+        shadowColor: 'transparent',
       },
-      headerTintColor: '#fff',
+      headerTintColor: '#F3F2F2',
       headerTitleStyle: {
         fontWeight: 'bold'
       }
@@ -145,18 +149,22 @@ const ForumStackScreen = ({navigation}) => (
       <ForumStack.Screen name = "Forum" component = {Forum} 
       options={{
         headerTitle: "NUSLah",
+        headerStatusBarHeight: 60,
         headerLeft: () => (
-          <Icon.Button name = "ios-menu" size = {25}
-          backgroundColor = "#39A0ED" onPress = {()=> navigation.openDrawer()}
-          ></Icon.Button>
+          // <Icon.Button name = "ios-menu" size = {30} color = "black"
+          // backgroundColor = "#F3F2F2" onPress = {()=> navigation.openDrawer()}/>
+          <View style = {{flexDirection: "row", padding: 10, height: 50, left: 10}}>
+            <Text style = {{fontSize : 30, fontWeight: '500'}}>NUS</Text><Text style = {{fontSize : 30, color: '#39A0ED',fontWeight: '500'}}>Lah</Text>
+          </View>
         ),
         headerRight: () => (
           <View style = {{flexDirection: 'row'}}>
             <Icon.Button name = "ios-notifications-outline" size = {25} 
-            style = {{marginRight:-12}}
-            backgroundColor = "#39A0ED" onPress = {console.log('notif!')}></Icon.Button>
+            style = {{marginRight:-12}} color = "black"
+            backgroundColor = "#F3F2F2" onPress = {console.log('notif!')}></Icon.Button>
             <Icon.Button name = "ios-chatbox-ellipses-outline" size = {25} 
-            backgroundColor = "#39A0ED" onPress = {console.log('message!')}></Icon.Button>
+            color = "black"
+            backgroundColor = "#F3F2F2" onPress = {console.log('message!')}></Icon.Button>
           </View>
         )
       }}
@@ -280,13 +288,22 @@ const DiscoverStackScreen = ({navigation}) => (
             },
           }}
         >
-          <HomeStack.Screen name = "Home" component = {Home} 
+          <HomeStack.Screen name = "Home" component = {None} 
           options = {{
             headerTitle: "NUSLah",
             headerLeft: () => (
               <Icon.Button name="ios-menu" size = {25}
               backgroundColor="#39A0ED" onPress = {() => navigation.openDrawer()}>
               </Icon.Button>
+            ),
+            headerRight: () => (
+              <View style = {{flexDirection: 'row'}}>
+                <Icon.Button name = "ios-notifications-outline" size = {25} 
+                style = {{marginRight:-12}}
+                backgroundColor = "#39A0ED" onPress = {console.log('notif!')}></Icon.Button>
+                <Icon.Button name = "ios-chatbox-ellipses-outline" size = {25} 
+                backgroundColor = "#39A0ED" onPress = {console.log('message!')}></Icon.Button>
+              </View>
             )
           }}/>
         </HomeStack.Navigator>
