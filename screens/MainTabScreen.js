@@ -195,7 +195,7 @@ const ForumStackScreen = ({navigation}) => (
           // <Icon.Button name = "ios-menu" size = {30} color = "black"
           // backgroundColor = "#F3F2F2" onPress = {()=> navigation.openDrawer()}/>
           <View style = {{flexDirection: "row", paddingLeft: 10, height: 50, left: 10}}>
-            <Text style = {{fontSize : 30, fontWeight: '500'}}>NUSS</Text><Text style = {{fontSize : 30, color: '#39A0ED',fontWeight: '500'}}>Lah</Text>
+            <Text style = {{fontSize : 30, fontWeight: '500'}}>NUS</Text><Text style = {{fontSize : 30, color: '#39A0ED',fontWeight: '500'}}>Lah</Text>
           </View>
         ),
         headerRight: () => (
@@ -233,7 +233,7 @@ const ForumStackScreen = ({navigation}) => (
           // <Icon.Button name = "ios-menu" size = {30} color = "black"
           // backgroundColor = "#F3F2F2" onPress = {()=> navigation.openDrawer()}/>
           <View style = {{flexDirection: "row", paddingLeft: 10, height: 50, left: 10}}>
-            <Text style = {{fontSize : 30, fontWeight: '500'}}>NUSS</Text><Text style = {{fontSize : 30, color: '#39A0ED',fontWeight: '500'}}>Lah</Text>
+            <Text style = {{fontSize : 30, fontWeight: '500'}}>NUS</Text><Text style = {{fontSize : 30, color: '#39A0ED',fontWeight: '500'}}>Lah</Text>
           </View>
         ),
         headerRight: () => (
@@ -273,7 +273,7 @@ const DiscoverStackScreen = ({navigation}) => (
           // <Icon.Button name = "ios-menu" size = {30} color = "black"
           // backgroundColor = "#F3F2F2" onPress = {()=> navigation.openDrawer()}/>
           <View style = {{flexDirection: "row", paddingLeft: 10, height: 50, left: 10}}>
-            <Text style = {{fontSize : 30, fontWeight: '500'}}>NUSS</Text><Text style = {{fontSize : 30, color: '#39A0ED',fontWeight: '500'}}>Lah</Text>
+            <Text style = {{fontSize : 30, fontWeight: '500'}}>NUS</Text><Text style = {{fontSize : 30, color: '#39A0ED',fontWeight: '500'}}>Lah</Text>
           </View>
         ),
         headerRight: () => (
