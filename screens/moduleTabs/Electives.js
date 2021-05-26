@@ -3,12 +3,21 @@ import { StyleSheet, Text, SafeAreaView, View} from 'react-native';
 
 const Electives = () => {
     return ( 
-        <View>
+        <View style = {styles.container}>
             <Text>
-                Unrestricted Electives
+                Electives
             </Text>
         </View>
      );
 }
  
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        // backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+})
 export default Electives;

@@ -8,11 +8,13 @@ import Electives from './moduleTabs/Electives'
 import Unrestricted from './moduleTabs/Unrestricted'
 import None from './NoPage'
 import Icon from 'react-native-vector-icons/Ionicons'
+import { Dimensions } from 'react-native';
 
 
 const Tab = createMaterialTopTabNavigator();
 
 const Tabs = () => {
+    const totalWidth = Dimensions.get("screen").width;
     return ( 
         <Tab.Navigator 
         activeColor="#39A0ED"
@@ -20,16 +22,41 @@ const Tabs = () => {
             style: {backgroundColor: '#F3F2F2',shadowColor: 'transparent'},
             activeTintColor: '#39A0ED',
             inactiveTintColor: '#A5A5A5',
-            indicatorStyle: {width: 50}
+            labelStyle: { fontSize: 15, textTransform: "sentencecase"},
+            indicatorStyle: {width: totalWidth / 4, borderRadius: 50, left:totalWidth/20}
             }}>
             <Tab.Screen name = "Core" component = {Core} 
                 options={{
-                    backgroundColor: 'black',
-                    tabBarLabel: 'Core',
+                    tabBarLabel: ({focused}) => (
+                        <View style = {{width: 35, lignContent:'center', justifyContent:'center', flex :1}}>
+                            <Text style = {focused? {fontWeight:"bold", color: '#39A0ED'}:{color: '#A5A5A5'}}>
+                                    Core
+                            </Text>
+                        </View>
+                    )
                 }}
             />
-            <Tab.Screen name = "Electives" component = {Electives}/>
-            <Tab.Screen name = "Unrestricted" component = {Unrestricted}/>
+            <Tab.Screen name = "Electives" component = {Electives}
+            options={{
+                tabBarLabel: ({focused}) => (
+                    <View style = {{width: 64, lignContent:'center', justifyContent:'center', flex :1}}>
+                        <Text style = {focused? {fontWeight:"bold", color: '#39A0ED'}:{color: '#A5A5A5'}}>
+                                Electives
+                        </Text>
+                    </View>
+                )
+            }}
+            />
+            <Tab.Screen name = "Unrestricted" component = {Unrestricted}
+            options={{
+                tabBarLabel: ({focused}) => (
+                    <View style = {{width: 87, lignContent:'center', justifyContent:'center', flex :1}}>
+                        <Text style = {focused? {fontWeight:"bold", color: '#39A0ED'}:{color: '#A5A5A5'}}>
+                                Unrestricted
+                        </Text>
+                    </View>
+                )
+            }}/>
         </Tab.Navigator>
      );
 }
