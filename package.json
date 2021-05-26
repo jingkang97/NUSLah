@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@expo/webpack-config": "^0.12.73",
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
     "@react-native-community/cli": "^5.0.1-alpha.2",
