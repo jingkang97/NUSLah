@@ -4,7 +4,7 @@ import {View, Text, StyleSheet, TouchableHighlight, Animated, LogBox} from 'reac
 import {FontAwesome5, Feather} from '@expo/vector-icons'
 import Icons from 'react-native-vector-icons/Ionicons'
 import OctIcons from 'react-native-vector-icons/Octicons'
-
+// import ViewOverFlow from 'react-native-view-overflow'
 
 // create-outline
 
@@ -87,7 +87,8 @@ export default class AddButton extends React.Component {
         })
 
         return (
-        <View style = {{position: "absolute", alignItems:"center"}}>
+        // <ViewOverFlow>
+        <View style = {{position: "absolute", alignItems:"center", elevation: 2}}>
             <Animated.View style = {{position: "absolute", width: discussTextWidth, left: discussTextX, top: discussTextY}}>
                 <View style = {style.discussText}>
                     <Text style = {{fontSize: 10}}>Add Discussion</Text>
@@ -104,22 +105,28 @@ export default class AddButton extends React.Component {
                     <Text style = {{fontSize: 10}}>Add Review</Text>
                 </View>
             </Animated.View>
+
             <Animated.View style = {{position: "absolute", left: reviewX, top: reviewY}}>
+                <TouchableHighlight>
                 <View style = {style.secondaryButton}>
                     <OctIcons name = "checklist" size={30} color = "#39A0ED"/>
                 </View>
+                </TouchableHighlight>
             </Animated.View>
+
             <Animated.View style = {[style.button,sizeStyle]}>
-                <TouchableHighlight onPress = {this.handlePress} underlayColor = "#39A0ED" style = {{height: 70, width: 70, borderRadius: '50%'}}>
+                <TouchableHighlight onPress = {this.handlePress} underlayColor = "#39A0ED" style = {{height: 70, width: 70, borderRadius: 50}}>
                     <Animated.View style = {{transform: [{rotate: rotation}]}}>
                         {console.log()}
-                        <View style = {{height: 70, width: 70, alignItems: 'center',justifyContent: "center", borderRadius: '50%'}}>
+                        <View style = {{height: 70, width: 70, alignItems: 'center',justifyContent: "center", borderRadius: 50}}>
                             <FontAwesome5 name = "plus" size = {25} color = "#FFF"/>
                         </View>
                     </Animated.View>
                 </TouchableHighlight>
             </Animated.View>
         </View>
+        // </ViewOverFlow>
+
         )
     }
 }
@@ -142,6 +149,7 @@ const style = StyleSheet.create({
         shadowRadius: 5,
         shadowOffset: {height: 5, width: 5},
         shadowOpacity: 0.6,
+        elevation: 5
     },
     secondaryButton: {
         backgroundColor: 'white',
