@@ -1,6 +1,10 @@
 import React, { Component, useState } from 'react';
 import { StyleSheet, Text, SafeAreaView, View} from 'react-native';
 import {SearchBar} from 'react-native-elements'
+import TopTab from './TopTab'
+import {NavigationContainer} from '@react-navigation/native';
+
+
 
 const Forum = ({navigation}) => {
 
@@ -26,6 +30,7 @@ const Forum = ({navigation}) => {
 
             />
             <View style = {styles.container}>
+            
             <Text>
                 Forum
             </Text> 
