@@ -4,6 +4,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack'
 import AddButton from './AddButton';
 
+import ForumHeader from '../header/ForumHeader';
+import ModuleReviewHeader from '../header/ModuleReviewHeader';
+import DiscoverHeader from '../header/DiscoverHeader';
+import ProfileHeader from '../header/ProfileHeader';
 import NavigationContainer from '@react-navigation/native'
 
 import Icon from 'react-native-vector-icons/Ionicons'
