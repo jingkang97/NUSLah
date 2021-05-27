@@ -151,7 +151,12 @@ const ForumStackScreen = ({navigation}) => (
         fontWeight: 'bold'
       }
     }}>
-      <MessageStack.Screen name = "MessageStack" component = {Message}/>
+      <MessageStack.Screen name = "Message" component = {Message}
+      options = {{
+        headerTitle: "Messages",
+        headerTintColor: 'blue'
+      }}
+      />
 
       <ForumStack.Screen name = "Forum" component = {Forum} 
       options={{
@@ -172,7 +177,7 @@ const ForumStackScreen = ({navigation}) => (
             backgroundColor = "#F3F2F2" onPress = {console.log('notif!')}></Icon.Button>
             <Icon.Button name = "ios-chatbox-ellipses-outline" size = {25} 
             color = "black"
-            backgroundColor = "#F3F2F2" onPress = {() => navigation.navigate("MessageStack")}></Icon.Button>
+            backgroundColor = "#F3F2F2" onPress = {() => navigation.navigate("Message")}></Icon.Button>
           </View>
         )
       }}
