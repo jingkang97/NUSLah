@@ -1,11 +1,8 @@
 import React from 'react';
-import Home from "./Home"
 import { StyleSheet, Text, SafeAreaView, View, Image} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack'
 import AddButton from './AddButton';
-import ChatButton from '../buttons/ChatButton';
-import NotifButton from '../buttons/NotifButton';
 import ForumHeader from '../header/ForumHeader';
 import ModuleReviewHeader from '../header/ModuleReviewHeader';
 import DiscoverHeader from '../header/DiscoverHeader';
@@ -13,17 +10,11 @@ import ProfileHeader from '../header/ProfileHeader';
 import Icon from 'react-native-vector-icons/Ionicons'
 // import { TouchableOpacity } from 'react-native-gesture-handler';
 import { StylesProvider } from '@material-ui/styles';
-
-import None from './NoPage'
 import { Row } from 'native-base';
-
-const HomeStack = createStackNavigator();
-
 
 const Tab = createBottomTabNavigator();
 
 const MainTabScreen = () => (
-    
     
     <Tab.Navigator
       initialRouteName="Forum"
@@ -146,38 +137,6 @@ const DiscoverStackScreen = ({navigation}) => (
     <DiscoverHeader />
   );
   
-// const HomeStackScreen = ({navigation}) => {
-//     return(
-//         <HomeStack.Navigator 
-//           screenOptions={{
-//             headerStyle:{
-//               backgroundColor: "#39A0ED",
-//             },
-//             headerTintColor: '#fff',
-//             headerTitleStyle:{
-//               fontWeight:'bold',
-//             },
-//           }}
-//         >
-//           <HomeStack.Screen name = "Home" component = {None} 
-//           options = {{
-//             headerTitle: "NUSLah",
-//             headerLeft: () => (
-//               <Icon.Button name="ios-menu" size = {25}
-//               backgroundColor="#39A0ED" onPress = {() => navigation.openDrawer()}>
-//               </Icon.Button>
-//             ),
-//             headerRight: () => (
-//               <View style = {{flexDirection: 'row'}}>
-//               <NotifButton />
-//               <ChatButton />
-//             </View>
-//             )
-//           }}/>
-//         </HomeStack.Navigator>
-//     )
-// }
-
 
   const style = StyleSheet.create({
     shadow: {
