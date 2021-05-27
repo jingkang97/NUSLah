@@ -5,8 +5,9 @@ const mongoose = require('mongoose')
 
 require('./reviews')
 
-const User = mongoose.model("User")
+app.use(bodyParser.json())
 
+const User = mongoose.model("User")
 
 const mongoURI = "mongodb+srv://ngjk97:jmunfSrrq0MhcbC4@cluster0.m6m4z.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
@@ -27,7 +28,29 @@ app.get('/', (req,res)=>{
     res.send("welcome to node js")
 })
 
+app.post('/send-data', (req,res) => {
+    const user = new User({
+        name: req.body.name,
+        email: req.body.email,
+        age: req.body.age,
+        review: req.body.review
+    })
+    user.save()
+    .then(data=>{
+        console.log(data)
+        res.send("success")
+    }).catch(err=>{
+        console.log(err)
+    })
+})
+
+
+app.post('/send', (req,res) => {
+    console.log(req.body)
+    res.send("posted")
+})
 
 app.listen(3000, ()=>{
     console.log("server running")
 })
+

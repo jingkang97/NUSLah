@@ -16,10 +16,13 @@ import {
   } from '../styles/MessageStyles';
   import {createStackNavigator} from '@react-navigation/stack';
   import { Message } from '@material-ui/icons';
+import Messagess from '../screens/MessagesScreen'
+
+// const MessageStack = createStackNavigator();
 
 
 const ChatButton = (props) => {
-  console.log(props.name)
+  // console.log(props.name)
     return (
         <Icon.Button onPress={() => navigation.navigate(props.name)}
         name = "ios-chatbox-ellipses-outline" size = {25} 
@@ -59,8 +62,8 @@ const Messages = [
   
   const MessagesScreen = ({navigation}) => {
       return (
-        <MessageStack.Navigator>
-          <Message.Screen name="Messages" component= {MessagesScreen} />
+        // <MessageStack.Navigator>
+        //   <Message.Screen name="Messages" component= {MessagesScreen} />
         <Container>
           <FlatList 
             data={Messages}
@@ -83,7 +86,7 @@ const Messages = [
             )}
           />
         </Container>
-        </MessageStack.Navigator>
+        // </MessageStack.Navigator>
       );
   };
     
