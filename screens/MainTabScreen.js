@@ -3,19 +3,20 @@ import { StyleSheet, Text, SafeAreaView, View, Image} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack'
 import AddButton from './AddButton';
-import ForumHeader from '../header/ForumHeader';
-import ModuleReviewHeader from '../header/ModuleReviewHeader';
-import DiscoverHeader from '../header/DiscoverHeader';
-import ProfileHeader from '../header/ProfileHeader';
+
+import NavigationContainer from '@react-navigation/native'
+
 import Icon from 'react-native-vector-icons/Ionicons'
 // import { TouchableOpacity } from 'react-native-gesture-handler';
 import { StylesProvider } from '@material-ui/styles';
+import TopTab from './TopTab'
+import None from './NoPage'
 import { Row } from 'native-base';
 
 const Tab = createBottomTabNavigator();
 
 const MainTabScreen = () => (
-    
+
     <Tab.Navigator
       initialRouteName="Forum"
       activeColor="#39A0ED"
@@ -55,7 +56,7 @@ const MainTabScreen = () => (
       />
       <Tab.Screen
         name="Module Review"
-        component={ModuleReviewStackScreen}
+        component={TopTab}
         options={{
         
           tabBarLabel: 'Module Review',

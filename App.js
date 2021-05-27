@@ -4,6 +4,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import MainTabScreen from './screens/MainTabScreen';
 import { StyleSheet, Text, View, Button, Image, TouchableOpacity, Dimensions} from 'react-native';
 import Profile from './screens/Profile'
+import TopTab from './screens/TopTab'
 
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context'
 
