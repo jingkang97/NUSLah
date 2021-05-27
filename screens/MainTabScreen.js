@@ -10,6 +10,9 @@ import {createStackNavigator} from '@react-navigation/stack'
 import AddButton from './AddButton';
 import NavigationContainer from '@react-navigation/native'
 
+
+import Message from './Message'
+
 import Icon from 'react-native-vector-icons/Ionicons'
 // import { TouchableOpacity } from 'react-native-gesture-handler';
 import { StylesProvider } from '@material-ui/styles';
@@ -22,6 +25,8 @@ const ProfileStack = createStackNavigator();
 const ForumStack = createStackNavigator();
 const ModuleReviewStack = createStackNavigator();
 const DiscoverStack = createStackNavigator();
+const MessageStack = createStackNavigator();
+
 
 const Tab = createBottomTabNavigator();
 
@@ -134,8 +139,6 @@ export default MainTabScreen;
 
 
 
-
-
 const ForumStackScreen = ({navigation}) => (
     <ForumStack.Navigator screenOptions = {{
       headerStyle: {
@@ -148,6 +151,8 @@ const ForumStackScreen = ({navigation}) => (
         fontWeight: 'bold'
       }
     }}>
+      <MessageStack.Screen name = "MessageStack" component = {Message}/>
+
       <ForumStack.Screen name = "Forum" component = {Forum} 
       options={{
         headerTitle: "NUSLah",
@@ -167,11 +172,12 @@ const ForumStackScreen = ({navigation}) => (
             backgroundColor = "#F3F2F2" onPress = {console.log('notif!')}></Icon.Button>
             <Icon.Button name = "ios-chatbox-ellipses-outline" size = {25} 
             color = "black"
-            backgroundColor = "#F3F2F2" onPress = {console.log('message!')}></Icon.Button>
+            backgroundColor = "#F3F2F2" onPress = {() => navigation.navigate("MessageStack")}></Icon.Button>
           </View>
         )
       }}
       />
+
     </ForumStack.Navigator>
   );
 
