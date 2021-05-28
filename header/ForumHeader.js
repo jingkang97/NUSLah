@@ -21,9 +21,9 @@ const ForumHeader = ({navigation}) => {
             headerTintColor: '#F3F2F2',
             headerTitleStyle: {
               fontWeight: 'bold'
-            }
+            },
           }}>
-            <MessageStack.Screen name = "Messages" component = {Messages}/>
+            
             <ForumStack.Screen name = "Forum" component = {Forum} 
             options={{
               headerTitle: "NUSLah",
@@ -48,6 +48,14 @@ const ForumHeader = ({navigation}) => {
                       backgroundColor = "#F3F2F2" />
                 </View>
               )
+            }}
+            />
+            <MessageStack.Screen name = "Messages" component = {Messages}
+            options = {{
+              headerTitle: 'Messages',
+              headerTintColor: '#39A0ED',
+              headerBackTitleVisible: false
+
             }}
             />
           </ForumStack.Navigator>
