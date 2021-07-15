@@ -3,11 +3,12 @@ import { StyleSheet, Text, SafeAreaView, View, Dimensions, FlatList} from 'react
 import Icon from 'react-native-vector-icons/Ionicons'
 import axios from 'axios';
 
-const Module = ({name}) => {
+const Module = ({navigation, route}) => {
     return ( 
         <View>
             <Text>
-                name
+                
+                {route.params.name}
             </Text>
         </View>
      );

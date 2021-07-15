@@ -2,23 +2,45 @@ import React , {useState, useEffect} from 'react';
 import { StyleSheet, Text, SafeAreaView, View, Dimensions, FlatList} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons'
 import axios from 'axios';
+import {NavigationContainer} from '@react-navigation/native'
 import {createStackNavigator} from '@react-navigation/stack';
+import Module from './Module'
 
-const modules = createStackNavigator()
+const Stack = createStackNavigator()
+
+const ModuleStack = () => {
+    return(
+        // <NavigationContainer independent={true}>
+            <Stack.Navigator 
+            // mode="modal"
+            screenOptions={{
+                headerShown: false
+            }} 
+  initialRouteName="Modules">
+                <Stack.Screen name="Modules" component={Core}/>
+                <Stack.Screen 
+                
+                name="Module" component={Module}/>
+                
+            </Stack.Navigator>
+        // </NavigationContainer>
+    )
+}
 
 
-const Core = () => {
+
+const Core = ({navigation}) => {
 
     const [reviews, setReviews] = useState()
     const {width, height} = Dimensions.get('screen')
-
+    
     const getData = () => {
         // if testing on physical phone use ngrok http 3000 - need to install ngrok first
         // if testing on laptop simulator can use localhost 
         // axios.get('http://1bdfeb43ac18.ngrok.io')
         axios.get('http://localhost:5000/modules')
         .then(res => {
-            console.log(res.data[0].title)
+            // console.log(res.data[0].title)
             // const review = res.data[0].name
             const reviews = res.data
             // console.log(reviews)
@@ -31,6 +53,7 @@ const Core = () => {
 
     return ( 
         <View style = {styles.container}>
+            
             <FlatList 
             keyExtractor={item=>item.id}
             data={reviews}
@@ -43,7 +66,9 @@ const Core = () => {
                     </View>
 
                     <Icon.Button name = "chevron-forward-outline" color = 'black'  backgroundColor= 'transparent'
-                        onPress = {()=>{console.log('module!')}}
+                        // onPress = {()=>{console.log('module!')}}
+                        onPress = {()=>navigation.push('Module',{name: item.title})}
+
                     />
                 </View>
                 )}
@@ -52,6 +77,7 @@ const Core = () => {
         </View>
      );
 }
+
 
 
 
@@ -78,4 +104,4 @@ const styles = StyleSheet.create({
     }
 })
  
-export default Core;
+export default ModuleStack;
