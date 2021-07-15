@@ -1,5 +1,5 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import React from 'react';
+import React, {useState} from 'react';
 import { StyleSheet, Text, SafeAreaView, View } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack'
@@ -9,12 +9,16 @@ import Unrestricted from './moduleTabs/Unrestricted'
 import None from './NoPage'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { Dimensions } from 'react-native';
+import NotifButton from '../buttons/NotifButton'
+import {SearchBar} from 'react-native-elements'
+
 
 
 const Tab = createMaterialTopTabNavigator();
 
 const Tabs = () => {
     const totalWidth = Dimensions.get("screen").width;
+
     return ( 
         <Tab.Navigator 
         activeColor="#39A0ED"
@@ -23,7 +27,7 @@ const Tabs = () => {
             activeTintColor: '#39A0ED',
             inactiveTintColor: '#A5A5A5',
             labelStyle: { fontSize: 15, textTransform: "sentencecase"},
-            indicatorStyle: {width: totalWidth / 4, borderRadius: 50, left:totalWidth/20}
+            indicatorStyle: {width: totalWidth / 4, borderRadius: 50, left:totalWidth/22}
             }}>
             <Tab.Screen name = "Core" component = {Core} 
                 options={{
@@ -64,6 +68,10 @@ const Tabs = () => {
 const MainScreenNavigator = createStackNavigator()
 
 const MainScreen = () => {
+    const [search,setSearch] = useState()
+    const updateSearch = (search) => {
+        setSearch(search)
+    }
     return ( 
         <MainScreenNavigator.Navigator
             screenOptions={{
@@ -87,14 +95,12 @@ const MainScreen = () => {
                 ),
                 headerRight: () => (
                   <View style = {{flexDirection: 'row'}}>
-                    <Icon.Button name = "ios-notifications-outline" size = {25} 
-                    style = {{marginRight:-12}} color = "black"
-                    backgroundColor = "#F3F2F2" onPress = {console.log('notif!')}></Icon.Button>
+                    <NotifButton />
                     <Icon.Button name = "ios-chatbox-ellipses-outline" size = {25} 
                     color = "black"
-                    backgroundColor = "#F3F2F2" onPress = {console.log('message!')}></Icon.Button>
+                    backgroundColor = "#F3F2F2" onPress = {() => {console.log('message!')}}></Icon.Button>
                   </View>
-                )
+                ),
               }}
             />
         </MainScreenNavigator.Navigator>
@@ -103,40 +109,40 @@ const MainScreen = () => {
  
 
 
-const HomeStackScreen = ({navigation}) => {
-    return(
-        <HomeStack.Navigator 
-          screenOptions={{
-            headerStyle:{
-              backgroundColor: "#39A0ED",
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle:{
-              fontWeight:'bold',
-            },
-          }}
-        >
-          <HomeStack.Screen name = "Home" component = {None} 
-          options = {{
-            headerTitle: "NUSLah",
-            headerLeft: () => (
-              <Icon.Button name="ios-menu" size = {25}
-              backgroundColor="#39A0ED" onPress = {() => navigation.openDrawer()}>
-              </Icon.Button>
-            ),
-            headerRight: () => (
-              <View style = {{flexDirection: 'row'}}>
-                <Icon.Button name = "ios-notifications-outline" size = {25} 
-                style = {{marginRight:-12}}
-                backgroundColor = "#39A0ED" onPress = {console.log('notif!')}></Icon.Button>
-                <Icon.Button name = "ios-chatbox-ellipses-outline" size = {25} 
-                backgroundColor = "#39A0ED" onPress = {console.log('message!')}></Icon.Button>
-              </View>
-            )
-          }}/>
-        </HomeStack.Navigator>
-    )
-  }
+// const HomeStackScreen = ({navigation}) => {
+//     return(
+//         <HomeStack.Navigator 
+//           screenOptions={{
+//             headerStyle:{
+//               backgroundColor: "#39A0ED",
+//             },
+//             headerTintColor: '#fff',
+//             headerTitleStyle:{
+//               fontWeight:'bold',
+//             },
+//           }}
+//         >
+//           <HomeStack.Screen name = "Home" component = {None} 
+//           options = {{
+//             headerTitle: "NUSLah",
+//             headerLeft: () => (
+//               <Icon.Button name="ios-menu" size = {25}
+//               backgroundColor="#39A0ED" onPress = {() => navigation.openDrawer()}>
+//               </Icon.Button>
+//             ),
+//             headerRight: () => (
+//               <View style = {{flexDirection: 'row'}}>
+//                 <Icon.Button name = "ios-notifications-outline" size = {25} 
+//                 style = {{marginRight:-12}}
+//                 backgroundColor = "#39A0ED" onPress = {console.log('notif!')}></Icon.Button>
+//                 <Icon.Button name = "ios-chatbox-ellipses-outline" size = {25} 
+//                 backgroundColor = "#39A0ED" onPress = {console.log('message!')}></Icon.Button>
+//               </View>
+//             )
+//           }}/>
+//         </HomeStack.Navigator>
+//     )
+//   }
 
 const styles = StyleSheet.create({
     container: {

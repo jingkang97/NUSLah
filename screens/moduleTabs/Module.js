@@ -7,7 +7,7 @@ const Module = ({name}) => {
     return ( 
         <View>
             <Text>
-                
+                name
             </Text>
         </View>
      );

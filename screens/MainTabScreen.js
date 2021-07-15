@@ -10,7 +10,6 @@ import DiscoverHeader from '../header/DiscoverHeader';
 import ProfileHeader from '../header/ProfileHeader';
 import NavigationContainer from '@react-navigation/native'
 
-
 import Message from './Message'
 
 import Icon from 'react-native-vector-icons/Ionicons'
@@ -78,6 +77,7 @@ const MainTabScreen = () => (
           ),
           
         }}
+
       />
 
         <Tab.Screen

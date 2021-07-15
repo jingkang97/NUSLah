@@ -4,7 +4,6 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import axios from 'axios';
 import {createStackNavigator} from '@react-navigation/stack';
 
-
 const modules = createStackNavigator()
 
 
@@ -14,12 +13,12 @@ const Core = () => {
     const {width, height} = Dimensions.get('screen')
 
     const getData = () => {
-        // axios.get('http://localhost:3000')
         // if testing on physical phone use ngrok http 3000 - need to install ngrok first
         // if testing on laptop simulator can use localhost 
-        axios.get('http://1bdfeb43ac18.ngrok.io')
+        // axios.get('http://1bdfeb43ac18.ngrok.io')
+        axios.get('http://localhost:3000')
         .then(res => {
-            const review = res.data[0].name
+            // const review = res.data[0].name
             const reviews = res.data
             // console.log(reviews)
             setReviews(reviews)
@@ -35,16 +34,20 @@ const Core = () => {
             <FlatList data = {reviews}
             renderItem={({item})=>(
                 <View style = {styles.listItem}>
+                    <View>
                     <Text> {item.name}</Text>
+                    <Text> {item.email}</Text>
+                    </View>
+
                     <Icon.Button name = "chevron-forward-outline" color = 'black'  backgroundColor= 'transparent'
-                        onClick = {() => {console.log('clicked!')}}
+                        onPress = {() => {() => {console.log('clicked!')}}}
                     />
                 </View>
-                
             )}
             >
 
             </FlatList>
+            {/* <Text>Core</Text> */}
         </View>
      );
 }
@@ -57,7 +60,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#F3F2F2',
         paddingTop: 20
         // margin: 10
-
     },
     listItem:{
         margin: 10,
@@ -67,7 +69,8 @@ const styles = StyleSheet.create({
         flex: 1,
         alignSelf: "center",
         flexDirection: "row",
-        borderRadius: 5
+        justifyContent: 'space-between',
+        borderRadius: 10
     }
 })
  

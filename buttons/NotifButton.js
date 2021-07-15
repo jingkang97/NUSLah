@@ -6,7 +6,7 @@ const NotifButton = () => {
     return (
         <Icon.Button name = "ios-notifications-outline" size = {25} 
         style = {{marginRight:-12}} color = "black"
-        backgroundColor = "#F3F2F2" onPress = {console.log('notif!')}></Icon.Button>
+        backgroundColor = "#F3F2F2" onPress = {() => {console.log('notif!')}}></Icon.Button>
     )
 }
 export default NotifButton;
