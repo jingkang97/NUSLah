@@ -7,8 +7,8 @@ const ModuleReview = ({navigation}) => {
     return ( 
         <SafeAreaView style = {styles.container}>
             <TopTab />
-            <RadioButton value = "first"
-            />
+            {/* <RadioButton value = "first"
+            /> */}
             {/* <Text>
                 Module Review
             </Text>  */}

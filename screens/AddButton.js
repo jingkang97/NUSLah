@@ -4,9 +4,15 @@ import {View, Text, StyleSheet, TouchableHighlight, Animated, LogBox} from 'reac
 import {FontAwesome5, Feather} from '@expo/vector-icons'
 import Icons from 'react-native-vector-icons/Ionicons'
 import OctIcons from 'react-native-vector-icons/Octicons'
+import {createStackNavigator} from '@react-navigation/stack';
+
 // import ViewOverFlow from 'react-native-view-overflow'
 
 // create-outline
+
+import AddReview from './AddReview'
+
+
 
 
 export default class AddButton extends React.Component {
@@ -107,7 +113,7 @@ export default class AddButton extends React.Component {
             </Animated.View>
 
             <Animated.View style = {{position: "absolute", left: reviewX, top: reviewY}}>
-                <TouchableHighlight>
+                <TouchableHighlight onPress={()=>{console.log('add review!')}} underlayColor = "transparent">
                 <View style = {style.secondaryButton}>
                     <OctIcons name = "checklist" size={30} color = "#39A0ED"/>
                 </View>

@@ -16,8 +16,9 @@ const Core = () => {
         // if testing on physical phone use ngrok http 3000 - need to install ngrok first
         // if testing on laptop simulator can use localhost 
         // axios.get('http://1bdfeb43ac18.ngrok.io')
-        axios.get('http://localhost:3000')
+        axios.get('http://localhost:5000/modules')
         .then(res => {
+            console.log(res.data[0].title)
             // const review = res.data[0].name
             const reviews = res.data
             // console.log(reviews)
@@ -30,24 +31,24 @@ const Core = () => {
 
     return ( 
         <View style = {styles.container}>
-            {/* flatlist need to use item */}
-            <FlatList data = {reviews}
-            renderItem={({item})=>(
-                <View style = {styles.listItem}>
+            <FlatList 
+            keyExtractor={item=>item.id}
+            data={reviews}
+                renderItem={({item})=>(
+                    
+                    <View key={item.id} style = {styles.listItem}>
                     <View>
-                    <Text> {item.name}</Text>
-                    <Text> {item.email}</Text>
+                    <Text style={{fontWeight: 'bold', marginBottom: 10}}>{item.moduleCode} {item.title}</Text>
+                    <Text>{item.moduleCredit} MCs <Text style={{ fontSize: '20', fontWeight:'bold'}}>·</Text> {item.sem1 && item.sem2 ? <Text>Offered in Sem 1 and 2</Text> : (item.sem1 ? <Text>Offered in Sem 1</Text> : (item.sem2 ? <Text>Offered in Sem 2</Text>:null))}</Text>
                     </View>
 
                     <Icon.Button name = "chevron-forward-outline" color = 'black'  backgroundColor= 'transparent'
-                        onPress = {() => {() => {console.log('clicked!')}}}
+                        onPress = {()=>{console.log('module!')}}
                     />
                 </View>
-            )}
-            >
-
-            </FlatList>
-            {/* <Text>Core</Text> */}
+                )}
+            />
+            
         </View>
      );
 }
@@ -63,7 +64,10 @@ const styles = StyleSheet.create({
     },
     listItem:{
         margin: 10,
-        padding: 10,
+        padding: 5,
+        paddingTop: 20,
+        paddingLeft: 20,
+        paddingBottom: 20,
         backgroundColor: "#FFF",
         width: "90%",
         flex: 1,
