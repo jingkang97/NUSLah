@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, SafeAreaView, View} from 'react-native';
 
+
 const Electives = () => {
     return ( 
         <View style = {styles.container}>

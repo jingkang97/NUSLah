@@ -7,17 +7,24 @@ import Profile from './screens/Profile'
 import TopTab from './screens/TopTab'
 
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context'
+import { createStackNavigator } from '@react-navigation/stack';
 
 const Drawer = createDrawerNavigator();
+
+const Main = createStackNavigator();
 
 export default function App() {
   return (
     <SafeAreaProvider>
     <NavigationContainer>
-    <Drawer.Navigator initialRouteName = "Forum">
-        <Drawer.Screen name = "Forum" component = {MainTabScreen}/>
+    <Main.Navigator initialRouteName = "Forum"
+    screenOptions={{
+      headerShown: false
+    }}
+    >
+        <Main.Screen name = "Forum" component = {MainTabScreen}/>
         {/* <Drawer.Screen name = "Profile" component = {Profile}/> */}
-      </Drawer.Navigator> 
+      </Main.Navigator> 
       
       </NavigationContainer>
       </SafeAreaProvider>

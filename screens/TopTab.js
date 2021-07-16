@@ -116,7 +116,16 @@ const MainScreen = ({navigation}) => {
                 ),
               }}
             />
-            <MainScreenNavigator.Screen name = "Module" component = {Module} />
+            <MainScreenNavigator.Screen name = "Module" component = {Module} 
+                options={
+                    {title:'',
+                    headerBackTitleVisible: false,
+                    headerTintColor: 'black',
+                    
+
+                }                    
+                }
+            />
             {/* <MainScreenNavigator.Screen name = "Test" component = {Test}/> */}
         </MainScreenNavigator.Navigator>
      );
@@ -132,26 +141,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
       },
-      listContainer:{
-        flex: 1, 
-        backgroundColor: '#F3F2F2',
-        paddingTop: 20
-        // margin: 10
-    },
-    listItem:{
-        margin: 10,
-        padding: 5,
-        paddingTop: 20,
-        paddingLeft: 20,
-        paddingBottom: 20,
-        backgroundColor: "#FFF",
-        width: "90%",
-        flex: 1,
-        alignSelf: "center",
-        flexDirection: "row",
-        justifyContent: 'space-between',
-        borderRadius: 10
-    }
+    
 })
  
 export default MainScreen;

@@ -1,31 +1,7 @@
 import React , {useState, useEffect} from 'react';
-import { StyleSheet, Text, SafeAreaView, View, Dimensions, FlatList} from 'react-native';
+import { StyleSheet, Text, SafeAreaView, View, Dimensions, FlatList, TouchableHighlight} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons'
 import axios from 'axios';
-import {NavigationContainer} from '@react-navigation/native'
-import {createStackNavigator} from '@react-navigation/stack';
-import Module from './Module'
-
-// const Stack = createStackNavigator()
-
-// const ModuleStack = () => {
-//     return(
-//         // <NavigationContainer independent={true}>
-//             <Stack.Navigator 
-//             // mode="modal"
-//             screenOptions={{
-//                 headerShown: false
-//             }} 
-//   initialRouteName="Modules">
-//                 <Stack.Screen name="Module" component={Module}/>
-//                 <Stack.Screen name="Modules" component={Core}/>
-                
-                
-                
-//             </Stack.Navigator>
-//         // </NavigationContainer>
-//     )
-// }
 
 
 
@@ -64,12 +40,19 @@ const Core = ({navigation}) => {
                     <Text style={{fontWeight: 'bold', marginBottom: 10}}>{item.moduleCode} {item.title}</Text>
                     <Text>{item.moduleCredit} MCs <Text style={{ fontSize: '20', fontWeight:'bold'}}>·</Text> {item.sem1 && item.sem2 ? <Text>Offered in Sem 1 and 2</Text> : (item.sem1 ? <Text>Offered in Sem 1</Text> : (item.sem2 ? <Text>Offered in Sem 2</Text>:null))}</Text>
                     </View>
+                    <TouchableHighlight  style={{display: 'flex', justifyContent: 'center', marginRight: 10}} onPress = {()=>navigation.push('Module',{module: item})}
+                        underlayColor='transparent'
 
-                    <Icon.Button name = "chevron-forward-outline" color = 'black'  backgroundColor= 'transparent'
-                        // onPress = {()=>{console.log('module!')}}
-                        onPress = {()=>navigation.push('Module',{name: item.title})}
+                    >
+                        
+                        <Icon name = "chevron-forward-outline" color = 'black'  backgroundColor= 'transparent'
+                            // onPress = {()=>{console.log('module!')}}
+                            style={{fontSize: 25}}
+                            
 
-                    />
+                        />
+                    </TouchableHighlight>
+                    
                 </View>
                 )}
             />
