@@ -4,8 +4,12 @@ import ModuleReview from '../screens/ModuleReview';
 import { Text, View } from 'react-native';
 import ChatButton from '../buttons/ChatButton';
 import NotifButton from '../buttons/NotifButton';
+import Module from '../screens/moduleTabs/Module'
 
 const ModuleReviewStack = createStackNavigator();
+
+
+
 
 const ModuleReviewHeader = () => {
     return (
@@ -39,6 +43,7 @@ const ModuleReviewHeader = () => {
                 )
             }}
             />
+            
         </ModuleReviewStack.Navigator>
     )
 }

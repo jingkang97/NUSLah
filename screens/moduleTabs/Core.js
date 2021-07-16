@@ -6,26 +6,26 @@ import {NavigationContainer} from '@react-navigation/native'
 import {createStackNavigator} from '@react-navigation/stack';
 import Module from './Module'
 
-const Stack = createStackNavigator()
+// const Stack = createStackNavigator()
 
-const ModuleStack = () => {
-    return(
-        // <NavigationContainer independent={true}>
-            <Stack.Navigator 
-            // mode="modal"
-            screenOptions={{
-                headerShown: false
-            }} 
-  initialRouteName="Modules">
-                <Stack.Screen name="Modules" component={Core}/>
-                <Stack.Screen 
+// const ModuleStack = () => {
+//     return(
+//         // <NavigationContainer independent={true}>
+//             <Stack.Navigator 
+//             // mode="modal"
+//             screenOptions={{
+//                 headerShown: false
+//             }} 
+//   initialRouteName="Modules">
+//                 <Stack.Screen name="Module" component={Module}/>
+//                 <Stack.Screen name="Modules" component={Core}/>
                 
-                name="Module" component={Module}/>
                 
-            </Stack.Navigator>
-        // </NavigationContainer>
-    )
-}
+                
+//             </Stack.Navigator>
+//         // </NavigationContainer>
+//     )
+// }
 
 
 
@@ -104,4 +104,4 @@ const styles = StyleSheet.create({
     }
 })
  
-export default ModuleStack;
+export default Core;

@@ -1,6 +1,6 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import React, {useState} from 'react';
-import { StyleSheet, Text, SafeAreaView, View } from 'react-native';
+import React , {useState, useEffect} from 'react';
+import { StyleSheet, Text, SafeAreaView, View, Dimensions, FlatList} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack'
 import Core from './moduleTabs/Core'
@@ -8,9 +8,13 @@ import Electives from './moduleTabs/Electives'
 import Unrestricted from './moduleTabs/Unrestricted'
 import None from './NoPage'
 import Icon from 'react-native-vector-icons/Ionicons'
-import { Dimensions } from 'react-native';
 import NotifButton from '../buttons/NotifButton'
 import {SearchBar} from 'react-native-elements'
+import { Navigation } from '@material-ui/icons';
+import Module from './moduleTabs/Module'
+
+import axios from 'axios';
+
 
 
 
@@ -67,7 +71,16 @@ const Tabs = () => {
 
 const MainScreenNavigator = createStackNavigator()
 
-const MainScreen = () => {
+const Test = () =>{
+    return(
+        <View>
+            <Text>HIHIHI</Text>
+        </View>
+    )
+}
+
+
+const MainScreen = ({navigation}) => {
     const [search,setSearch] = useState()
     const updateSearch = (search) => {
         setSearch(search)
@@ -98,51 +111,19 @@ const MainScreen = () => {
                     <NotifButton />
                     <Icon.Button name = "ios-chatbox-ellipses-outline" size = {25} 
                     color = "black"
-                    backgroundColor = "#F3F2F2" onPress = {() => {console.log('message!')}}></Icon.Button>
+                    backgroundColor = "#F3F2F2" onPress = {() => navigation.navigate("Test")}></Icon.Button>
                   </View>
                 ),
               }}
             />
+            <MainScreenNavigator.Screen name = "Module" component = {Module} />
+            {/* <MainScreenNavigator.Screen name = "Test" component = {Test}/> */}
         </MainScreenNavigator.Navigator>
      );
 }
- 
 
 
-// const HomeStackScreen = ({navigation}) => {
-//     return(
-//         <HomeStack.Navigator 
-//           screenOptions={{
-//             headerStyle:{
-//               backgroundColor: "#39A0ED",
-//             },
-//             headerTintColor: '#fff',
-//             headerTitleStyle:{
-//               fontWeight:'bold',
-//             },
-//           }}
-//         >
-//           <HomeStack.Screen name = "Home" component = {None} 
-//           options = {{
-//             headerTitle: "NUSLah",
-//             headerLeft: () => (
-//               <Icon.Button name="ios-menu" size = {25}
-//               backgroundColor="#39A0ED" onPress = {() => navigation.openDrawer()}>
-//               </Icon.Button>
-//             ),
-//             headerRight: () => (
-//               <View style = {{flexDirection: 'row'}}>
-//                 <Icon.Button name = "ios-notifications-outline" size = {25} 
-//                 style = {{marginRight:-12}}
-//                 backgroundColor = "#39A0ED" onPress = {console.log('notif!')}></Icon.Button>
-//                 <Icon.Button name = "ios-chatbox-ellipses-outline" size = {25} 
-//                 backgroundColor = "#39A0ED" onPress = {console.log('message!')}></Icon.Button>
-//               </View>
-//             )
-//           }}/>
-//         </HomeStack.Navigator>
-//     )
-//   }
+
 
 const styles = StyleSheet.create({
     container: {
@@ -151,6 +132,26 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
       },
+      listContainer:{
+        flex: 1, 
+        backgroundColor: '#F3F2F2',
+        paddingTop: 20
+        // margin: 10
+    },
+    listItem:{
+        margin: 10,
+        padding: 5,
+        paddingTop: 20,
+        paddingLeft: 20,
+        paddingBottom: 20,
+        backgroundColor: "#FFF",
+        width: "90%",
+        flex: 1,
+        alignSelf: "center",
+        flexDirection: "row",
+        justifyContent: 'space-between',
+        borderRadius: 10
+    }
 })
  
 export default MainScreen;
